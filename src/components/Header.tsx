@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className="border-b">
+    <header className="border-b bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-secondary hover:text-primary transition-colors">
-          ArticleHub
+        <Link to="/" className="text-3xl font-bold text-primary hover:text-primary/90 transition-colors font-serif">
+          MianPress
         </Link>
         <div className="flex gap-4">
           <Button asChild variant="ghost">
