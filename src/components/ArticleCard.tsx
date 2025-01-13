@@ -7,11 +7,12 @@ interface ArticleCardProps {
   excerpt: string;
   author: string;
   date: string;
+  image?: string;
   isLink?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
-export const ArticleCard = ({ title, excerpt, author, date, isLink, onClick }: ArticleCardProps) => {
+export const ArticleCard = ({ title, excerpt, author, date, image, isLink, onClick }: ArticleCardProps) => {
   return (
     <Card className="hover:shadow-lg transition-shadow duration-300 cursor-pointer" onClick={onClick}>
       <CardHeader>
@@ -29,6 +30,11 @@ export const ArticleCard = ({ title, excerpt, author, date, isLink, onClick }: A
         </h2>
       </CardHeader>
       <CardContent>
+        {image && (
+          <div className="mb-4">
+            <img src={image} alt={title} className="w-full h-48 object-cover rounded-md" />
+          </div>
+        )}
         <p className="text-gray-600 line-clamp-3">{excerpt}</p>
       </CardContent>
       <CardFooter className="flex justify-between">
