@@ -33,7 +33,22 @@ export default function NewArticle() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically save the article
+    
+    // Generate a unique article ID (in a real app, this would come from the backend)
+    const articleId = Date.now().toString();
+    
+    // Create the article URL
+    const articleUrl = `${window.location.origin}/article/${articleId}`;
+    
+    // Copy article URL to clipboard
+    navigator.clipboard.writeText(articleUrl).then(() => {
+      toast({
+        title: "Article link copied!",
+        description: "The link to your article has been copied to your clipboard.",
+      });
+    });
+
+    // Here you would typically save the article to a backend
     toast({
       title: "Article created!",
       description: "Your article has been successfully saved.",
